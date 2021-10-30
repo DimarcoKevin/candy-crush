@@ -14,9 +14,12 @@ const candyColors = [
 const App = () => {
 
   const createBoard = () => {
+    const randomColorArray = [];
     for (let i = 0; i < width * height; i++) {
         const randomColor = candyColors[Math.floor(Math.randon() * candyColors.length)];
+        randomColorArray.push(randomColor);
     }
+    console.log(randomColorArray);
   }
 
   return (
