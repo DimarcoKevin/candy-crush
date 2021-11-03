@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const width = 10;
 const height = 10;
@@ -13,7 +13,7 @@ const candyColors = [
 
 const App = () => {
 
-  const [randomColorArray, setRandomColorArray] = useState([]);
+  const [currentColorArray, setCurrentColorArray] = useState([]);
 
   const createBoard = () => {
     const randomColorArray = [];
@@ -21,9 +21,15 @@ const App = () => {
         const randomColor = candyColors[Math.floor(Math.random() * candyColors.length)];
         randomColorArray.push(randomColor);
     }
-    console.log(randomColorArray);
+    setCurrentColorArray(randomColorArray);
   }
-  createBoard();
+  
+
+  useEffect(() => {
+    createBoard();
+  }, [])
+
+  console.log(currentColorArray);
   return (
     <div></div>
   );
