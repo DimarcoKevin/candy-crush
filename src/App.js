@@ -15,6 +15,13 @@ const App = () => {
 
   const [currentColorArray, setCurrentColorArray] = useState([]);
 
+
+  const checkForMatch = () => {
+    for (let i = 0; i < height; i++) {
+
+    }
+  }
+
   const createBoard = () => {
     const randomColorArray = [];
     for (let i = 0; i < width * height; i++) {
