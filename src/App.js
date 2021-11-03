@@ -31,7 +31,16 @@ const App = () => {
 
   console.log(currentColorArray);
   return (
-    <div></div>
+    <div className="app">
+      <div className="game">
+        {currentColorArray.map((candyColors, index) => (
+          <img
+            key={index}
+            style={{backgroundColor: candyColors}}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
 
