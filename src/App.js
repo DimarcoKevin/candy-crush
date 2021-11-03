@@ -1,7 +1,7 @@
+import { useState } from 'react';
 
-
-const width = 8;
-const height = 8;
+const width = 10;
+const height = 10;
 const candyColors = [
         "blue",
         "green",
@@ -12,6 +12,8 @@ const candyColors = [
 ];
 
 const App = () => {
+
+  const [randomColorArray, setRandomColorArray] = useState([]);
 
   const createBoard = () => {
     const randomColorArray = [];
