@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 
-const width = 10;
-const height = 10;
+const width = 8;
+const height = 8;
 const candyColors = [
         "blue",
         "green",
         "orange",
-        "pruple",
+        "purple",
         "red",
         "yellow"
 ];
@@ -37,6 +37,7 @@ const App = () => {
           <img
             key={index}
             style={{backgroundColor: candyColors}}
+            alt={candyColors}
           />
         ))}
       </div>
