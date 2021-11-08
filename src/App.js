@@ -17,8 +17,9 @@ const App = () => {
 
 
   const checkForMatch = () => {
-    for (let i = 0; i < 47; i++) {
-        const match = [i, i + width, i + width * 2];
+    for (let i = 0; i < 48; i++) {
+        const columnMatch = [i, i + width, i + width * 2];
+        console.log(columnMatch);
     }
   }
 
@@ -34,6 +35,7 @@ const App = () => {
 
   useEffect(() => {
     createBoard();
+    checkForMatch();
   }, [])
 
   console.log(currentColorArray);
