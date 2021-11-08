@@ -18,8 +18,14 @@ const App = () => {
 
   const checkForMatch = () => {
     for (let i = 0; i < 48; i++) {
-        const columnMatch = [i, i + width, i + width * 2];
-        console.log(columnMatch);
+      const columnMatch = [i, i + width, i + width * 2];
+      const chosenColor = currentColorArray[i];
+      
+      if (columnMatch.every(square => currentColorArray[square] === chosenColor)) {
+        columnMatch.forEach(square => currentColorArray[square] = '') 
+
+        
+      }
     }
   }
 
@@ -35,8 +41,14 @@ const App = () => {
 
   useEffect(() => {
     createBoard();
-    checkForMatch();
   }, [])
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      checkForMatch();
+    }, 100)
+    return () => clearInterval(timer)
+  }, [checkForMatch])
 
   console.log(currentColorArray);
   return (
