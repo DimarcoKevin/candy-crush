@@ -37,6 +37,34 @@ const App = () => {
     }
   }
 
+  const RowQuadMatch = () => {
+    for (let row = 0; row < 8; row++) {
+      const rowAdd = row * 8;
+      for (let i = 0; i < 5; i++) {
+        const columnMatch = [i + rowAdd, i + rowAdd + 1, i + rowAdd + 2, i + rowAdd + 3];
+        const chosenColor = currentColorArray[i + rowAdd];
+        
+        if (columnMatch.every(square => currentColorArray[square] === chosenColor)) {
+          columnMatch.forEach(square => currentColorArray[square] = '')   
+        }
+      }
+    }
+  }
+
+  const RowTripleMatch = () => {
+    for (let row = 0; row < 8; row++) {
+      const rowAdd = row * 8;
+      for (let i = 0; i < 6; i++) {
+        const columnMatch = [i + rowAdd, i + rowAdd + 1, i + rowAdd + 2];
+        const chosenColor = currentColorArray[i + rowAdd];
+        
+        if (columnMatch.every(square => currentColorArray[square] === chosenColor)) {
+          columnMatch.forEach(square => currentColorArray[square] = '')   
+        }
+      }
+    }
+  }
+
   const createBoard = () => {
     const randomColorArray = [];
     for (let i = 0; i < width * width; i++) {
@@ -54,11 +82,13 @@ const App = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       ColumnQuadMatch();
+      RowQuadMatch()
       ColumnTripleMatch();
+      RowTripleMatch();
       setCurrentColorArray([...currentColorArray]);
     }, 100)
     return () => clearInterval(timer)
-  }, [ColumnTripleMatch, ColumnQuadMatch, currentColorArray])
+  }, [ColumnQuadMatch, RowQuadMatch, ColumnTripleMatch, RowTripleMatch, currentColorArray])
 
   console.log(currentColorArray);
   return (
