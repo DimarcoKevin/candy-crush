@@ -46,9 +46,10 @@ const App = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       checkForMatch();
+      setCurrentColorArray([...currentColorArray]);
     }, 100)
     return () => clearInterval(timer)
-  }, [checkForMatch])
+  }, [checkForMatch, currentColorArray])
 
   console.log(currentColorArray);
   return (
