@@ -15,6 +15,16 @@ const App = () => {
 
   const [currentColorArray, setCurrentColorArray] = useState([]);
 
+  const ColumnQuadMatch = () => {
+    for (let i = 0; i < 39; i++) {
+      const columnMatch = [i, i + width, i + width * 2, i + width * 3];
+      const chosenColor = currentColorArray[i];
+      
+      if (columnMatch.every(square => currentColorArray[square] === chosenColor)) {
+        columnMatch.forEach(square => currentColorArray[square] = '')   
+      }
+    }
+  }
 
   const ColumnTripleMatch = () => {
     for (let i = 0; i < 48; i++) {
@@ -43,11 +53,12 @@ const App = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
+      ColumnQuadMatch();
       ColumnTripleMatch();
       setCurrentColorArray([...currentColorArray]);
     }, 100)
     return () => clearInterval(timer)
-  }, [ColumnTripleMatch, currentColorArray])
+  }, [ColumnTripleMatch, ColumnQuadMatch, currentColorArray])
 
   console.log(currentColorArray);
   return (
