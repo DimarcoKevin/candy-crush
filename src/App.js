@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const width = 8;
-const height = 8;
+
 const candyColors = [
         "blue",
         "green",
@@ -17,14 +17,14 @@ const App = () => {
 
 
   const checkForMatch = () => {
-    for (let i = 0; i < height; i++) {
-
+    for (let i = 0; i < 47; i++) {
+        const match = [i, i + width, i + width * 2];
     }
   }
 
   const createBoard = () => {
     const randomColorArray = [];
-    for (let i = 0; i < width * height; i++) {
+    for (let i = 0; i < width * width; i++) {
         const randomColor = candyColors[Math.floor(Math.random() * candyColors.length)];
         randomColorArray.push(randomColor);
     }
