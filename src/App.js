@@ -83,16 +83,20 @@ const App = () => {
     }
   }
 
-  const dragStart = () => {
+  const dragStart = (e) => {
+    console.log(e.target)
+    console.log("Drag start")
 
   }
 
-  const dragDrop = () => {
-    
+  const dragDrop = (e) => {
+    console.log(e.target)
+    console.log("Drag drop")
   }
 
-  const dragEnd = () => {
-    
+  const dragEnd = (e) => {
+    console.log(e.target)
+    console.log("Drag end")
   }
 
 
@@ -133,12 +137,12 @@ const App = () => {
             alt={candyColors}
             data-id={index}
             draggable={true}
+            onDragStart={dragStart}
             onDragOver={(e) => e.preventDefault}
             onDragEnter={(e) => e.preventDefault}
-            onDragLeave={(e) => e.preventDefault}
-            onDragStart={{dragStart}}
-            onDrop={{dragDrop}}
-            onDragEnd={{dragEnd}}
+            onDragLeave={(e) => e.preventDefault}        
+            onDrop={dragDrop}
+            onDragEnd={dragEnd}
             
           />
         ))}
