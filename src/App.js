@@ -123,7 +123,6 @@ const App = () => {
   }, [ColumnQuadMatch, RowQuadMatch, ColumnTripleMatch, RowTripleMatch, moveIntoSquareBelow, currentColorArray])
 
 
-  console.log(currentColorArray);
   return (
     <div className="app">
       <div className="game">
