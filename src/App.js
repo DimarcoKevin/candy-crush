@@ -120,6 +120,14 @@ const App = () => {
             key={index}
             style={{backgroundColor: candyColors}}
             alt={candyColors}
+            data-id={index}
+            draggable={true}
+            onDragOver={(e) => e.preventDefault}
+            onDragEnter={(e) => e.preventDefault}
+            onDragLeave={(e) => e.preventDefault}
+            onDrop={{}}
+            onDragEnd={{}}
+            onDragStart={{}}
           />
         ))}
       </div>
