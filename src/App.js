@@ -65,6 +65,14 @@ const App = () => {
     }
   }
 
+  const moveIntoSquareBelow = () => {
+    for (let i = 0; i < 64 - width; i++) {
+      if ((currentColorArray[i + width]) === '') {
+        currentColorArray[i+width] = currentColorArray[i];
+        currentColorArray[i] = '';
+      }
+    }
+  }
 
 
   const createBoard = () => {
@@ -87,10 +95,11 @@ const App = () => {
       RowQuadMatch()
       ColumnTripleMatch();
       RowTripleMatch();
+      moveIntoSquareBelow();
       setCurrentColorArray([...currentColorArray]);
     }, 100)
     return () => clearInterval(timer)
-  }, [ColumnQuadMatch, RowQuadMatch, ColumnTripleMatch, RowTripleMatch, currentColorArray])
+  }, [ColumnQuadMatch, RowQuadMatch, ColumnTripleMatch, RowTripleMatch, moveIntoSquareBelow, currentColorArray])
 
 
   console.log(currentColorArray);
