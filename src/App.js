@@ -83,6 +83,18 @@ const App = () => {
     }
   }
 
+  const dragStart = () => {
+
+  }
+
+  const dragDrop = () => {
+    
+  }
+
+  const dragEnd = () => {
+    
+  }
+
 
   const createBoard = () => {
     const randomColorArray = [];
@@ -125,9 +137,10 @@ const App = () => {
             onDragOver={(e) => e.preventDefault}
             onDragEnter={(e) => e.preventDefault}
             onDragLeave={(e) => e.preventDefault}
-            onDrop={{}}
-            onDragEnd={{}}
-            onDragStart={{}}
+            onDragStart={{dragStart}}
+            onDrop={{dragDrop}}
+            onDragEnd={{dragEnd}}
+            
           />
         ))}
       </div>
