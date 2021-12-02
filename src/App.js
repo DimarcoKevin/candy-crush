@@ -65,17 +65,7 @@ const App = () => {
     }
   }
 
-  const dropCandies= () => {
-    for (let column = 0; column <= 7; column++) {
-      for (let row = 7; row >= 0; row++) {
-        const location = (row * 8) + column;
-        const locationAbove = (row * 7) + column;
-        if (currentColorArray[location] = '') {
-          currentColorArray[location] = currentColorArray[locationAbove];
-        }
-      }
-    }
-  }
+
 
   const createBoard = () => {
     const randomColorArray = [];
@@ -102,9 +92,6 @@ const App = () => {
     return () => clearInterval(timer)
   }, [ColumnQuadMatch, RowQuadMatch, ColumnTripleMatch, RowTripleMatch, currentColorArray])
 
-  // useEffect(() => {
-  //   dropCandies();
-  // }, [])
 
   console.log(currentColorArray);
   return (
