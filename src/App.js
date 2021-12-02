@@ -66,7 +66,16 @@ const App = () => {
   }
 
   const moveIntoSquareBelow = () => {
+
     for (let i = 0; i < 64 - width; i++) {
+      const firstRow = [0, 1, 2, 3, 4, 5, 6, 7]
+      const isFirstRow = firstRow.includes(i);
+
+      if (isFirstRow && currentColorArray[i] === '') {
+        let randomColor = Math.floor(Math.random() * candyColors.length); 
+        currentColorArray[i] = candyColors[randomColor];
+      }
+
       if ((currentColorArray[i + width]) === '') {
         currentColorArray[i+width] = currentColorArray[i];
         currentColorArray[i] = '';
