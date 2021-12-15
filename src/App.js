@@ -14,6 +14,8 @@ const candyColors = [
 const App = () => {
 
   const [currentColorArray, setCurrentColorArray] = useState([]);
+  const [squareBeingDragged, setSquareBeingDragged] = useState(null);
+  const [squareBeingReplaced, setSquareBeingReplaced] = useState(null);
 
   const ColumnQuadMatch = () => {
     for (let i = 0; i < 39; i++) {
@@ -84,19 +86,14 @@ const App = () => {
   }
 
   const dragStart = (e) => {
-    console.log(e.target)
-    console.log("Drag start")
-
+    setSquareBeingDragged(e.target);
   }
 
   const dragDrop = (e) => {
-    console.log(e.target)
-    console.log("Drag drop")
+    setSquareBeingReplaced(e.target);
   }
 
   const dragEnd = (e) => {
-    console.log(e.target)
-    console.log("Drag end")
   }
 
 
